@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hhhhp52/webtest/src/handler"
+	"github.com/hhhhp52/webtest/src/middleware"
 	"github.com/hhhhp52/webtest/src/utils/config"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/hero"
@@ -14,6 +15,10 @@ var addr = fmt.Sprintf("%v:%v", config.Get("server.host"), config.Get("server.po
 // Run maps the routing path and keeps listening for request
 func Run() {
 	app := iris.New()
+
+	//CORS
+	app.AllowMethods(iris.MethodOptions)
+	app.Use(middleware.CorsMiddleware)
 
 	// Error Handling
 	//app.Use(handler.ErrorHandler)
