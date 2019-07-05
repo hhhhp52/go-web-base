@@ -1,12 +1,15 @@
 package route
 
 import (
+	"fmt"
+
 	"github.com/hhhhp52/webtest/src/handler"
+	"github.com/hhhhp52/webtest/src/utils/config"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/hero"
 )
 
-//var addr = fmt.Sprintf("%v:%v", config.Get("server.host"), config.Get("server.port"))
+var addr = fmt.Sprintf("%v:%v", config.Get("server.host"), config.Get("server.port"))
 
 // Run maps the routing path and keeps listening for request
 func Run() {
@@ -32,6 +35,6 @@ func Run() {
 
 		}
 	}
-	//app.Run(iris.Addr(addr))
-	app.Run(iris.Addr(":80"))
+	app.Run(iris.Addr(addr))
+	//app.Run(iris.Addr(":80"))
 }
