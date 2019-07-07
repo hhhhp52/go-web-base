@@ -9,4 +9,13 @@ http:
     Access-Control-Allow-Origin: "*"
     Access-Control-Allow-Headers: "Content-Type, Authorization"
     Access-Control-Allow-Methods: "GET, POST, OPTIONS, HEAD, PATCH, DELETE"
+db:
+  dialect: "mysql"
+  user: "root"
+  password: "123456"
+  host: "172.18.0.2"
+  port: 3306
+  database: "webtest"
+  flag: "charset=utf8mb4&parseTime=True&loc=Local&collation=utf8mb4_unicode_ci"
+  interval: 60
 
