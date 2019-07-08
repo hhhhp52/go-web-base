@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/hhhhp52/webtest/src/route"
+	"github.com/hhhhp52/webtest/src/utils/logger"
+	"github.com/hhhhp52/webtest/src/persistence/gorm"
 )
 
 func main() {
@@ -21,5 +23,8 @@ func main() {
 
 		app.Run(iris.Addr(":80"))
 	*/
+	defer logger.Close()
+	defer gormdao.Close()
+
 	route.Run()
 }

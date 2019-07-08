@@ -31,7 +31,7 @@ func Run() {
 	v1 := app.Party("/v1")
 	{
 		//登入
-		v1.Get("/login", hero.Handler(handler.LoginHandler))
+		v1.Post("/login", hero.Handler(handler.LoginHandler))
 	}
 	app.Run(iris.Addr(addr))
 	//app.Run(iris.Addr(":80"))
