@@ -49,6 +49,10 @@ func GetByAccount(tx *gorm.DB, account string) *domain.User {
 	err := tx.Table(table).
 		Where("account = ?", account).
 		Scan(result).Error
+	
+	if gorm.IsRecordNotFoundError(err){
+		return nil
+	}
 
 	if err != nil {
 		panic(err)

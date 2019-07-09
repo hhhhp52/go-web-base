@@ -21,3 +21,8 @@
 [ 2019/07/07 13:50:14 ] ERROR -  : dial tcp 127.0.0.1:3306: connect: connection refused
 [ 2019/07/07 14:00:41 ] ERROR -  : dial tcp 127.0.0.1:3306: connect: connection refused
 [ 2019/07/07 14:11:20 ] ERROR -  : dial tcp 127.0.0.1:3306: connect: connection refused
+[ 2019/07/08 04:00:54 ] ERROR -  : record not found
+[ 2019/07/09 02:23:50 ] ERROR -  : bad connection
+[ 2019/07/09 02:50:30 ] ERROR -  : record not found
+[ 2019/07/09 02:51:02 ] ERROR -  : record not found
+[ 2019/07/09 02:52:32 ] ERROR -  : record not found
