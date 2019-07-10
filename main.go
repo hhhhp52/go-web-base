@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	/*
+	/* here is transfer to routes
 		app := iris.New()
 		app.RegisterView(iris.HTML("./views", ".html"))
 

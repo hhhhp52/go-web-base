@@ -4,7 +4,6 @@ import (
 	"time"
 
 	"github.com/hhhhp52/webtest/src/domain"
-	"github.com/hhhhp52/webtest/src/utils/auth"
 	"github.com/jinzhu/gorm"
 )
 
@@ -33,8 +32,6 @@ func New(tx *gorm.DB, user *domain.User) {
 			Password:  user.Password,
 			Name:      user.Name,
 			Nickname:  user.Nickname,
-			Status:    user.Status,
-			CreatedBy: auth.Account(),
 		}).Error
 
 	if err != nil {

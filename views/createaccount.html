@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Hello Go Web</title>
+</head>
+<body>
+    <h1>Create New Account</h1>
+    <form action="/v1/user/create" method="post">
+        帳號：<input type="text" name="Account"><br>
+        密碼：<input type="text" name="Password"><br>
+        名稱：<input type="text" name="Name"><br>
+        暱稱：<input type="text" name="Nickname"><br>
+        <input type="submit" value="送出">
+    </form>
+    <input type ="button" onclick="location.href='/'"  value="返回"></input>
+</body>
+</html>

@@ -32,6 +32,17 @@ func Run() {
 	{
 		//登入
 		v1.Post("/login", hero.Handler(handler.LoginHandler))
+		//創建新帳號
+		user := v1.Party("/user")
+		{
+			user.Get("/create", hero.Handler(handler.GetCreateHandler))
+			user.Post("/create", hero.Handler(handler.CreateHandler))
+		}
+
+		home := v1.Party("/home")
+		{
+			home.Get("/",hero.Handler(handler.HomeHandler))
+		}
 	}
 	app.Run(iris.Addr(addr))
 	//app.Run(iris.Addr(":80"))

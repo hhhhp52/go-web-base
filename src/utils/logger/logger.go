@@ -75,7 +75,7 @@ func callStack() string {
 		if !ok {
 			break
 		} else if !loggerRegexp.MatchString(file) && !middlewareRegexp.MatchString(file) && !errorHanlderRegexp.MatchString(file) && strings.Contains(file, "auroratechit-aurora-payment/") {
-			splittedPath := strings.Split(file, "auroratechit-aurora-payment/")
+			splittedPath := strings.Split(file, "webtest/")
 			relativePath := splittedPath[len(splittedPath)-1]
 			resul = fmt.Sprintf("File \"%v\", line %v", relativePath, line)
 		}
@@ -91,7 +91,7 @@ func fullStack() []string {
 		if !ok {
 			break
 		} else if !loggerRegexp.MatchString(file) && !middlewareRegexp.MatchString(file) && !errorHanlderRegexp.MatchString(file) && strings.Contains(file, "auroratechit-aurora-payment/") {
-			splittedPath := strings.Split(file, "auroratechit-aurora-payment/")
+			splittedPath := strings.Split(file, "webtest/")
 			relativePath := splittedPath[len(splittedPath)-1]
 			stack = append(stack, fmt.Sprintf("File \"%v\", line %v", relativePath, line))
 		}

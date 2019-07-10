@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"reflect"
 
 	"github.com/hhhhp52/webtest/src/error"
@@ -12,7 +11,7 @@ import (
 )
 
 // Login user login
-func Login(params interface{}) (result map[string]interface{}, e *error.Error) {
+func Login(params interface{}) (result []string, e *error.Error) {
 	tx := gormdao.DB()
 
 	defer func(){
@@ -24,14 +23,10 @@ func Login(params interface{}) (result map[string]interface{}, e *error.Error) {
 
 	value := reflect.ValueOf(params).Elem()
 	user := userdao.GetByAccount(tx, value.FieldByName("Account").String())
-
+	
 	if user == nil {
-		fmt.Println("error here user")
 		return nil, error.LoginError()
 	}
-
-	fmt.Println("user : ", user.Account)
-
 	// 因加密需解密
 	/*
 	if ok := hash.Verify(value.FieldByName("Password").String(), user.Password); !ok {
@@ -43,17 +38,12 @@ func Login(params interface{}) (result map[string]interface{}, e *error.Error) {
 	
 	// 密碼比對該方式有錯誤，之後再進行確認 
 	if user.Password != value.FieldByName("Password").String(){
-		fmt.Println("error here ok")
 		return nil, error.LoginError()
 	}
 	
-	
 	loadAccount(user.Account)
 
-	result = map[string]interface{}{
-		"Account": user.Account,
-		"Password": user.Password,
-	}
+	result = append(result, user.Account)
 
 	return result , nil
 }

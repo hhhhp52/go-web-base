@@ -8,36 +8,34 @@ import (
 )
 
 // LoginHandler user login
-func LoginHandler(ctx iris.Context) {
+func CreateHandler(ctx iris.Context) {
 	type rule struct {
 		Account  string `valid:"required"`
 		Password string `valid:"required"`
-		IP       string `valid:"ip"`
-		ErrMsg   string `valid:"-"`
+		Name     string `valid:"required"`
+		Nickname string `valid:"required"`
 	}
 
 	params := &rule{
 		Account:  ctx.FormValue("Account"),
 		Password: ctx.FormValue("Password"),
-		IP:       ctx.RemoteAddr(), // TODO: get ip from formbody
-		ErrMsg:   "",
+		Name:     ctx.FormValue("Name"),
+		Nickname: ctx.FormValue("Nickname"),
 	}
 
 	if _, err := govalidator.ValidateStruct(params); err != nil {
-		params.ErrMsg = err.Error()
 		failed(ctx, error.ValidateError(err.Error()))
 		return
 	}
 
-	result, err := service.Login(params)
+	result, err := service.CreateAccount(params)
 
 	if err != (*error.Error)(nil) {
-		params.ErrMsg = err.Error()
 		failed(ctx, err)
 		return
 	}
 
-	ctx.ViewData("message", result[0])
-	ctx.View("login.html")
+	ctx.ViewData("message", result)
+	ctx.View("create-redirect.html")
 	return
 }
