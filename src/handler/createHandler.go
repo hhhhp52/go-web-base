@@ -7,7 +7,7 @@ import (
 	"github.com/kataras/iris"
 )
 
-// LoginHandler user login
+// CreateHandler user login
 func CreateHandler(ctx iris.Context) {
 	type rule struct {
 		Account  string `valid:"required"`

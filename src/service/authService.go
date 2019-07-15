@@ -47,3 +47,16 @@ func Login(params interface{}) (result []string, e *error.Error) {
 
 	return result , nil
 }
+
+
+//Logout user logout
+func Logout() (result string, e *error.Error) {
+	defer func() {
+		if r := recover(); r != nil{
+			logger.Error(r)
+			e = error.UnexpectedError()
+		}
+	}()
+
+	return "success",nil
+}

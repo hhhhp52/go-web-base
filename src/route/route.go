@@ -37,11 +37,12 @@ func Run() {
 		{
 			user.Get("/create", hero.Handler(handler.GetCreateHandler))
 			user.Post("/create", hero.Handler(handler.CreateHandler))
+			user.Get("/logout", hero.Handler(handler.LogoutHandler))
 		}
 
 		home := v1.Party("/home")
 		{
-			home.Get("/",hero.Handler(handler.HomeHandler))
+			home.Get("/", hero.Handler(handler.HomeHandler))
 		}
 	}
 	app.Run(iris.Addr(addr))
