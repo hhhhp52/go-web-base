@@ -11,6 +11,7 @@ type User struct {
 	Password  string
 	Name      string
 	Nickname  string
+	Email     string
 	Status    string
 	CreatedAt time.Time
 	UpdatedAt *time.Time

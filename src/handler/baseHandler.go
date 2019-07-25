@@ -50,6 +50,7 @@ func init() {
 	}))
 }
 
+// success
 func success(ctx iris.Context, data interface{}) {
 	ctx.JSON(iris.Map{
 		"code":    0,
@@ -58,6 +59,7 @@ func success(ctx iris.Context, data interface{}) {
 	})
 }
 
+// failed
 func failed(ctx iris.Context, err *error.Error) {
 	ctx.JSON(iris.Map{
 		"code":    err.Code(),
@@ -66,6 +68,7 @@ func failed(ctx iris.Context, err *error.Error) {
 	})
 }
 
+//raw
 func raw(ctx iris.Context, data interface{}) {
 	ctx.Text(fmt.Sprintf("%v", data))
 }

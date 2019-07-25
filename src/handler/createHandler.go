@@ -14,6 +14,7 @@ func CreateHandler(ctx iris.Context) {
 		Password string `valid:"required"`
 		Name     string `valid:"required"`
 		Nickname string `valid:"required"`
+		Email    string `valid:"required"`
 	}
 
 	params := &rule{
@@ -21,6 +22,7 @@ func CreateHandler(ctx iris.Context) {
 		Password: ctx.FormValue("Password"),
 		Name:     ctx.FormValue("Name"),
 		Nickname: ctx.FormValue("Nickname"),
+		Email:    ctx.FormValue("Email"),
 	}
 
 	if _, err := govalidator.ValidateStruct(params); err != nil {

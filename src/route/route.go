@@ -30,19 +30,23 @@ func Run() {
 
 	v1 := app.Party("/v1")
 	{
-		//登入
-		v1.Post("/login", hero.Handler(handler.LoginHandler))
 		//創建新帳號
 		user := v1.Party("/user")
 		{
+			//登入
+			user.Post("/login", hero.Handler(handler.LoginHandler))
+			//Go to create page
 			user.Get("/create", hero.Handler(handler.GetCreateHandler))
+			//創建新帳號
 			user.Post("/create", hero.Handler(handler.CreateHandler))
+			//登出
 			user.Get("/logout", hero.Handler(handler.LogoutHandler))
 		}
 
 		home := v1.Party("/home")
 		{
 			home.Get("/", hero.Handler(handler.HomeHandler))
+			home.Get("/alluser", hero.Handler(handler.GetAllUserHandler))
 		}
 	}
 	app.Run(iris.Addr(addr))
