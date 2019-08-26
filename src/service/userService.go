@@ -86,3 +86,23 @@ func CreateAccount(params interface{}) (result string, e *error.Error) {
 
 	return "success", nil
 }
+
+//DeleteAccount to delete account
+func DeleteAccount(params interface{}) (result string, e *error.Error) {
+	tx := gormdao.DB().Begin()
+
+	defer func() {
+		if r := recover(); r != nil {
+			logger.Error(r)
+			e = error.UnexpectedError()
+		}
+	}()
+
+	value := reflect.ValueOf(params).Elem()
+
+	user := userdao.GetByAccount(tx, value.FieldByName("Account").String())
+
+	userdao.Delete(tx, user)
+
+	return "success", nil
+}

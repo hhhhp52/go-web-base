@@ -36,8 +36,6 @@ func LoginHandler(ctx iris.Context) {
 		failed(ctx, err)
 		return
 	}
-
-	ctx.ViewData("message", result[0])
-	ctx.View("login.html")
+	success(ctx, result)
 	return
 }

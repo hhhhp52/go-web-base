@@ -37,7 +37,6 @@ func CreateHandler(ctx iris.Context) {
 		return
 	}
 
-	ctx.ViewData("message", result)
-	ctx.View("create-redirect.html")
+	success(ctx, result)
 	return
 }

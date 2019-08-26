@@ -8,13 +8,12 @@ import (
 // LogoutHandler user logout
 func LogoutHandler(ctx iris.Context) {
 
-	_, err := service.Logout()
+	result, err := service.Logout()
 
 	if err != nil {
 		failed(ctx, err)
 		return
 	}
-
-	ctx.View("logout.html")
+	success(ctx, result)
 	return
 }

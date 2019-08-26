@@ -28,6 +28,7 @@ type model struct {
 // New a record
 func New(tx *gorm.DB, user *domain.User) {
 	err := tx.Table(table).
+		Debug().
 		Create(&model{
 			Account:  user.Account,
 			Password: user.Password,
@@ -35,6 +36,19 @@ func New(tx *gorm.DB, user *domain.User) {
 			Nickname: user.Nickname,
 			Email:    user.Email,
 		}).Error
+
+	if err != nil {
+		panic(err)
+	}
+}
+
+//Delete a record
+func Delete(tx *gorm.DB, user *domain.User) {
+	err := tx.Table(table).
+		Debug().
+		Unscoped().
+		Delete(&model{}, "id = ? && account = ?", user.ID, user.Account).
+		Error
 
 	if err != nil {
 		panic(err)

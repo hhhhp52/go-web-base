@@ -24,9 +24,7 @@ func Run() {
 	//app.Use(handler.ErrorHandler)
 
 	// CORS
-	app.RegisterView(iris.HTML("./views", ".html"))
-
-	app.Get("/", hero.Handler(handler.HelloHandler))
+	//app.RegisterView(iris.HTML("./views", ".html"))
 
 	v1 := app.Party("/v1")
 	{
@@ -35,18 +33,17 @@ func Run() {
 		{
 			//登入
 			user.Post("/login", hero.Handler(handler.LoginHandler))
-			//Go to create page
-			user.Get("/create", hero.Handler(handler.GetCreateHandler))
 			//創建新帳號
 			user.Post("/create", hero.Handler(handler.CreateHandler))
 			//登出
 			user.Get("/logout", hero.Handler(handler.LogoutHandler))
+			//刪除帳號
+			user.Post("/delete", hero.Handler(handler.DeleteHandler))
 		}
 
 		home := v1.Party("/home")
 		{
-			home.Get("/", hero.Handler(handler.HomeHandler))
-			home.Get("/alluser", hero.Handler(handler.GetAllUserHandler))
+			home.Get("/showall", hero.Handler(handler.GetAllMemberHandler))
 		}
 	}
 	app.Run(iris.Addr(addr))

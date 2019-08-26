@@ -5,7 +5,9 @@ if( ! test -f Makefile) then
     exit;
 fi
 
-cp config/config.yml
+
+go get -v github.com/rubenv/sql-migrate/...
+
 
 scripts/build.sh
 
