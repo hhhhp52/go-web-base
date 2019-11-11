@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/hhhhp52/webtest/src/utils/config"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // CorsMiddleware enalbe cors

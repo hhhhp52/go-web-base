@@ -8,7 +8,7 @@ import (
 	"github.com/hhhhp52/webtest/src/error"
 	"github.com/hhhhp52/webtest/src/utils/time"
 	"github.com/hhhhp52/webtest/src/utils/typecast"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // custome validator

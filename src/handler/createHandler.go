@@ -4,7 +4,7 @@ import (
 	"github.com/asaskevich/govalidator"
 	"github.com/hhhhp52/webtest/src/error"
 	"github.com/hhhhp52/webtest/src/service"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // CreateHandler user login

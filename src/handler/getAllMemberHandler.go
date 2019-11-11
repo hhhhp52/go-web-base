@@ -3,7 +3,7 @@ package handler
 import (
 	"github.com/hhhhp52/webtest/src/error"
 	"github.com/hhhhp52/webtest/src/service"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // GetAllMemberHandler return hello message
