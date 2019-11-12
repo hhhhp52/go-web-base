@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/hhhhp52/webtest/src/service"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // LogoutHandler user logout

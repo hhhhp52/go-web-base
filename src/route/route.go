@@ -6,8 +6,8 @@ import (
 	"github.com/hhhhp52/webtest/src/handler"
 	"github.com/hhhhp52/webtest/src/middleware"
 	"github.com/hhhhp52/webtest/src/utils/config"
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/hero"
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/hero"
 )
 
 var addr = fmt.Sprintf("%v:%v", config.Get("server.host"), config.Get("server.port"))
